@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Calculator - Biagtan, Nathaniel</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="webdevTemplate/css/bootstrap.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="webdevTemplate/js/bootstrap.min.js"></script>
+    <script src="webdevTemplate/js/popper.min.js"></script>	
+    <script src="webdevTemplate/js/bootstrap.js"></script>
+    <link rel="stylesheet" type="text/css" href="mystyles.css">
+
+      <style>
+	</style>
+	<script type="text/javascript">
+    $(document).ready(function() {
+        
+        const $box = $("#box");
+        
+    
+        $box.width(200).height(200);
+        
+        
+        $("#btn1").click(function(){ $box.animate({ height: "+=20" }, 100); });
+        $("#btn2").click(function(){ $box.animate({ height: "-=20" }, 100); });
+        $("#btn3").click(function(){ $box.animate({ width: "+=20" }, 100); });
+        $("#btn4").click(function(){ $box.animate({ width: "-=20" }, 100); });
+        $("#btn5").click(function(){ $box.animate({ borderRadius: "+=10" }, 100); });
+        $("#btn6").click(function(){ $box.animate({ borderRadius: "-=10" }, 100); });
+        $("#btn7").click(function(){ 
+            $box.animate({
+                width: 200,
+                height: 200,
+                borderRadius: 0
+            }, 100); 
+        });
+    });
+</script>
+
+  </head>
+  <body>
+    <div class="container text-center mt-4">
+      <h1>Box Manipulation</h1>
+      <div class="card bg-info mx-auto mb-3" id="box" style="width: 200px; height: 200px;"></div>
+
+      <button type="button" class="btn text-light bg-info m-1" id="btn1">Increase Height</button>
+      <button type="button" class="btn text-light bg-info m-1" id="btn2">Decrease Height</button>
+      <button type="button" class="btn text-light bg-info m-1" id="btn3">Increase Width</button>
+      <button type="button" class="btn text-light bg-info m-1" id="btn4">Decrease Width</button>
+      <br>
+      <br>
+      <button type="button" class="btn text-light bg-info m-1" id="btn5">Increase Radius</button>
+      <button type="button" class="btn text-light bg-info m-1" id="btn6">Decrease Radius</button>
+      <button type="button" class="btn text-light bg-info m-1" id="btn7">Restore Default</button>
+    </div>
+  
+  </body>
+</html>
