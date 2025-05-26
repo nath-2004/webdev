@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Chessboard</title>
+    <style>
+      #myCanvas {
+        border: solid 1px black;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="myCanvas" width="400" height="400" style="border:1px solid #d3d3d3;"> <!--The height and width is set at 400 because 400/50 is = 8 and the chessboard is 8x8 with a total of 64 squares-->
+      Your browser does not support the HTML canvas tag.
+    </canvas>
+
+    <script>
+      var c = document.getElementById("myCanvas");
+      var ctx = c.getContext("2d");
+
+      // Declared the total Rows and Columns
+      var rows = 8;
+      var cols = 8;
+         
+      // Declared the Size
+      var squareSize = 50; 
+
+      // This loop po is to iterate the rows and coloumns
+      for (var row = 0; row < rows; row++) {
+        for (var col = 0; col < cols; col++) {
+            
+        // Calculate position for each square. For example, first row is 1 so it will be 1 * 50 so it will move 50px downward from the top and if it is on the column it will move 50px from the left
+        var x = col * squareSize;
+        var y = row * squareSize;
+        
+        //Checks if the row or column is even or odd
+
+        if ((row + col) % 2 == 0) { // Checks if it is even, an even row or column should have no remainder. If it is even, it will be white. Ex (First row (1) + First Column (1) = 2 then 2 % 2 = 0,, therefore it is even)
+        var grd = ctx.createLinearGradient(x, y, x + squareSize, y + squareSize); //  Creates a linear gradient that will fill a square diagonally.
+
+        // The 0 is the start of the color while the 1 is the end
+        grd.addColorStop(0, "white");
+        grd.addColorStop(1, "#ccc");
+        ctx.fillStyle = grd;
+        } else { // if it is odd, it will be black. Example (First Row (1) + Second Column (2) = 3 then 3 % 2 = 1, therefore it is odd)
+        var grd = ctx.createLinearGradient(x, y, x + squareSize, y + squareSize);
+        grd.addColorStop(0, "#222");
+        grd.addColorStop(1, "black");
+        ctx.fillStyle = grd;
+        }
+          ctx.fillRect(x, y, squareSize, squareSize);
+        } 
+      }
+
+    </script>
+  </body>
+</html>
